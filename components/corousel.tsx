@@ -61,12 +61,10 @@ export default function CustomCarousel() {
         ))}
       </div>
       <div className="absolute inset-x-0 bottom-0 top-0 flex flex-col items-center justify-center p-6 text-white space-y-3 w-[80%] mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold ">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold ">
           {carouselItems[currentSlide].title}
-          <div className="flex justify-center text-center text-2xl md:text-3xl">
-          </div>
         </h2>
-        <p className="text-sm md:text-lg lg:text-5xl">{carouselItems[currentSlide].subtitle}</p>
+        <p className="text-sm md:text-lg lg:text-lg">{carouselItems[currentSlide].subtitle}</p>
         <BookBtn title="Book Now"/>
         <div className="flex space-x-2">
           {carouselItems.map((_, index) => (
