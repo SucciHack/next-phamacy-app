@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Header() {
   return (
-        <div className='flex justify-between bg-blue-800 py-4 px-2'>
+        <div className='hidden md:flex justify-between bg-blue-800 py-4 px-2'>
             <div className="icons flex text-white gap-3">
                 <Icon icon = {<Twitter size={20}/>}/>
                 <Icon icon = {<Facebook size={20}/>}/>
