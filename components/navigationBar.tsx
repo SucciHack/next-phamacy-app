@@ -16,7 +16,7 @@ export default function NavigationBar() {
       </div>
       {/* Logo  */}
       <div>
-        <p className='text-lg md:text-4xl flex gap-2 font-bold'><Pill className='text-blue-800 text-lg md:text-lg lg:text-4xl'/>Phamacy</p>
+        <p className='flex items-center text-lg md:text-4xl gap-2 font-bold'><Pill className='text-blue-800 text-5xl'/>Phamacy</p>
       </div>
       {/* search & cart  */}
       <div className='flex gap-3 items-center'>

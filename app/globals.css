@@ -15,7 +15,7 @@ body {
 :hover{
   border-bottom: 2px blue;
 }
-@layer base {
+/* @layer base {
   :root {
     --background:black;
     --foreground: white;
@@ -95,7 +95,7 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
+} */
 @layer base {
   * {
     @apply border-border;

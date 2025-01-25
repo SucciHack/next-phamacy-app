@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/themeProvider";
+// import { ThemeProvider } from "@/components/themeProvider";
 // import { ThemeProvider } from "@/components/themeProvider";
 
 const geistSans = Poppins({
@@ -25,17 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <html>
     <body>
-      <ThemeProvider
+      {/* <ThemeProvider
         attribute="class"
-        defaultTheme="system"
+        defaultTheme="light"
         enableSystem
         disableTransitionOnChange
       >
+      </ThemeProvider> */}
         <div className={`${geistSans.className} antialiased`}>
           {children}
         </div>
-      </ThemeProvider>
     </body>
+    </html>
   );
 }

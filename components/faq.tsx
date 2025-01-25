@@ -46,9 +46,9 @@ export default function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="rounded-lg px-4 bg-white data-[state=open]:bg-white data-[state=open]:shadow-md transition-all duration-200 data-[state=open]:h-[320px]"
+                className="px-4 bg-white data-[state=open]:bg-white data-[state=open]:shadow-md transition-all duration-200 data-[state=open]:h-[320px]"
               >
-                <AccordionTrigger className="text-lg font-semibold hover:no-underline py-4 text-blue-800 [&[data-state=open]>svg]:rotate-180">
+                <AccordionTrigger className="text-lg font-semibold py-4 text-blue-800 [&[data-state=open]>svg]:rotate-180">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pb-4">{faq.answer}</AccordionContent>
