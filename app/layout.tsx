@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import NavigationBar from "@/components/navigationBar";
 import { Toaster } from "@/components/ui/toaster";
+import { ToastDestructive } from "@/components/toastError";
 
 const geistSans = Poppins({
 subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <NavigationBar />
         <div className={`${geistSans.className} antialiased`}>
           <Toaster />
+          <ToastDestructive/>
           {children}
         </div>
         <Footer/>

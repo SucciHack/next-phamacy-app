@@ -18,14 +18,17 @@ export const useCartStore = create<cartProductState>()(
     persist(
         (set,get) => ({
             items:[],
-            handleAddToCart: (product:cartItem)=> {
-                if(product){
+            handleAddToCart: (newProduct:cartItem)=> {
+                const productExist = get().items.find((product)=> product.id === newProduct.id)
+                if(productExist){
                     toast({
-                        description: "❌❌ product already in cart",
-                    })
+                        variant: "destructive",
+                        title: "Uh oh! Something went wrong.",
+                        description: "There was a problem with your request.",
+                      })
                 }else{
                     const products = get().items;
-                    set({items: [...products, product]})
+                    set({items: [...products, newProduct]})
                     toast({
                         description: "👌👌Product added to cart",
                     })

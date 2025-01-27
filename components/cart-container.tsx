@@ -10,7 +10,7 @@ export function CartContainer() {
     const totalPrices = items.map((item)=> item.SalePrice)
     const total = totalPrices.reduce((acc, curr)=> acc + curr, 0)
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 min-h-[300px]">
       {
         items && items.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
