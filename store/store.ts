@@ -23,7 +23,7 @@ export const useCartStore = create<cartProductState>()(
                 if(productExist){
                     toast({
                         variant: "destructive",
-                        title: "Uh oh! Something went wrong.",
+                        title: "item already exists in cart.",
                         description: "There was a problem with your request.",
                       })
                 }else{
