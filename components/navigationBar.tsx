@@ -1,14 +1,16 @@
+'use client'
+import { useCartStore } from '@/store/store'
 import { ChevronDown, CircleUser, Pill, Search, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { ModeToggle } from './theme-button'
 
 export default function NavigationBar() {
+  const {items} = useCartStore()
   return (
     <div className='py-4 bg-white text-black flex justify-between sticky top-0 z-50 shadow-lg px-3 items-center'>
       {/* Links  */}
       <div className="gap-8 justify-center items-center hidden md:flex lg:flex">
-        <Link href='#' >Home</Link>
+        <Link href='/' >Home</Link>
         <Link className='flex gap-2 justify-center items-center' href='#' >Shop <ChevronDown size={15}/></Link>
         <Link href='#' >About</Link>
         <Link className='flex gap-2 justify-center items-center' href='#' >Page <ChevronDown size={15}/></Link>
@@ -25,11 +27,14 @@ export default function NavigationBar() {
             <Search className='text-sm md:text-lg lg:text-2xl'/>
         </div>
         <div className='relative flex gap-2'>
-          <ShoppingBag className='text-black text-sm md:text-2xl'/>
-          <div className='bg-black text-white w-[20px] h-[20px] absolute top-0 right-0 text-sm flex justify-center items-center rounded-full translate-x-2 translate-y-[-5px] font-bold'>0</div>
+          <Link href='/cart'>
+              <ShoppingBag className='text-black text-sm md:text-2xl'/>
+          </Link>
+          <div className='bg-black text-white w-[20px] h-[20px] absolute top-0 right-0 text-sm flex justify-center items-center rounded-full translate-x-2 translate-y-[-5px] font-bold'>{items.length}</div>
         </div>
-        <CircleUser className='text-sm md:text-2xl'/>
-        <ModeToggle/>
+        <Link href='/register'>
+          <CircleUser className='text-sm md:text-2xl'/>
+        </Link>
       </div>
     </div>
   )

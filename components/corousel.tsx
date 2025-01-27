@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import BookBtn from "./bookBtn";
 import Image from "next/image";
+import BookButton from "./bookButton";
 
 const carouselItems = [
   {
@@ -54,7 +54,8 @@ export default function CustomCarousel() {
               src={item.image}
               alt={`Slide ${index + 1}`}
               className="object-cover w-full h-full"
-              fill
+              width={1920}
+              height={1080}
             />
             <div className="absolute inset-0 bg-purple-900/50" />
           </div>
@@ -65,7 +66,7 @@ export default function CustomCarousel() {
           {carouselItems[currentSlide].title}
         </h2>
         <p className="text-sm md:text-lg lg:text-lg">{carouselItems[currentSlide].subtitle}</p>
-        <BookBtn title="Book Now"/>
+        <BookButton />
         <div className="flex space-x-2">
           {carouselItems.map((_, index) => (
             <button

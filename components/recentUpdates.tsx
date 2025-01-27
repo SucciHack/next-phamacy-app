@@ -15,7 +15,10 @@ export default function RecentUpdates() {
           {/* First Card */}
           <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <div className="relative h-48">
-              <Image src="/nurse-wearing-scrubs.jpg" alt="Emergency Preparedness" fill className="object-cover" />
+              <Image src="/nurse-wearing-scrubs.jpg" alt="Emergency Preparedness"
+               className="object-cover" 
+               width={500}  height={500}
+               />
             </div>
             <div className="p-4">
               <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">

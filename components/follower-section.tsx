@@ -1,6 +1,6 @@
 import React from 'react'
-import BookBtn from './bookBtn'
 import Image from 'next/image'
+import BookButton from './bookButton'
 
 export default function FollowerSection() {
   return (
@@ -10,7 +10,7 @@ export default function FollowerSection() {
             <div className="space-y-2">
               <h2 className='text-2xl md:text-4xl font-bold text-blue-700'>Excellent Medical Professionals With Significant Experience</h2>
               <p className='text-sm md:text-lg'>Tristique senectus et netus et malesuada fames ac turpis. Turpis massa tincidunt dui ut ornare lectus sit amet. Viverra orci sagittis eu volutpat odio facilisis mauris sit amet. Imperdiet proin fermentum leo vel orci porta non pulvinar.</p>
-              <BookBtn title = 'Book Now'/>
+              <BookButton />
             </div>
           </div>
           <div className='w-[90%] md:w-1/2'>

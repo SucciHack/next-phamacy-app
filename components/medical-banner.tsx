@@ -1,6 +1,6 @@
 import React from 'react'
-import BookBtn from './bookBtn'
 import Image from 'next/image'
+import BookButton from './bookButton'
 
 export default function MedicalBanner() {
   return (
@@ -11,7 +11,7 @@ export default function MedicalBanner() {
         <h2 className='text-4xl font-bold'>Week End Sale!</h2>
         <p className='text-2xl'>Buy Your Best Healthcare Equipment & Medicines</p>
         <p className='text-sm md:text-lg'>Ornare arcu lacusac tellus faucibus accumsan. Duisaliquet veldiam sedpretium. Duis sodales maximus risusquis mollis</p>
-        <BookBtn title = 'Shop Now'/>
+        <BookButton />
       </div>
     </div>
     </div>

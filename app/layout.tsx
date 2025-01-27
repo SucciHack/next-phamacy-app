@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-// import { ThemeProvider } from "@/components/themeProvider";
-// import { ThemeProvider } from "@/components/themeProvider";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import NavigationBar from "@/components/navigationBar";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Poppins({
 subsets: ["latin"],
@@ -27,16 +29,13 @@ export default function RootLayout({
   return (
     <html>
     <body>
-      {/* <ThemeProvider
-        attribute="class"
-        defaultTheme="light"
-        enableSystem
-        disableTransitionOnChange
-      >
-      </ThemeProvider> */}
+        <Header />
+        <NavigationBar />
         <div className={`${geistSans.className} antialiased`}>
+          <Toaster />
           {children}
         </div>
+        <Footer/>
     </body>
     </html>
   );

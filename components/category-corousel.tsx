@@ -10,8 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import BookBtn from "./bookBtn"
 import Image from "next/image"
+import BookButton from "./bookButton"
 
 export function CarouselSize() {
     const categories = [
@@ -61,7 +61,7 @@ export function CarouselSize() {
                   <Image src={item.image} alt='' width={400} height={400} className='w-full h-full object-cover'/>
                   <div className='p-2 absolute bottom-0 flex justify-between items-center gap-6 z-10 text-sm'>
                         <p className='text-white text-xl font-bold'>{item.name}</p>
-                                      <BookBtn title="Book Now"/>
+                                      <BookButton />
                                   </div>
                                   <div className="bg-gradient-to-t from-indigo-500 to-transparent opacity-90 absolute bottom-0 w-full h-[120px]"></div>
                               </div>

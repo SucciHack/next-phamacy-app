@@ -34,8 +34,9 @@ export default function FAQSection() {
           <Image
             src="/consultationDoctor.webp"
             alt="Doctor consulting with patient"
-            fill
-            className="object-cover rounded-lg p-8 py-8"
+            width={500}
+            height={500}
+            className="object-cover rounded-lg p-8 py-8 w-full h-full"
             priority
           />
         </div>
