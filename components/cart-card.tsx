@@ -5,6 +5,8 @@ import Image from "next/image"
 
 export function CartCard({item}:{item:cartItem}) {
   const { removeCartItem } = useCartStore()
+
+
   return (
     <div className="flex gap-4 py-4 border-b">
       <div className="relative w-36 h-36 bg-gray-100">

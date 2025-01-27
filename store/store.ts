@@ -8,6 +8,7 @@ export type cartItem = {
     title:string,
     SalePrice:number,
     RegularPrice:number,
+    quantity:number
 }
 type cartProductState = {
     items:cartItem[],
@@ -23,7 +24,7 @@ export const useCartStore = create<cartProductState>()(
                 if(productExist){
                     toast({
                         variant: "destructive",
-                        title: "item already exists in cart.",
+                        title: "❌❌ item already exists in cart.",
                         description: "There was a problem with your request.",
                       })
                 }else{
@@ -38,7 +39,7 @@ export const useCartStore = create<cartProductState>()(
                 const filteredProducts = get().items.filter((product)=> product.id !== id)
                 set({items: filteredProducts})
                 toast({
-                    description: "👌👌 Product removed from cart",
+                    description: "✅✅Product removed from cart",
                   })
             }
         }),
