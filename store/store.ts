@@ -8,7 +8,6 @@ export type cartItem = {
     title:string,
     SalePrice:number,
     RegularPrice:number,
-    quantity:number
 }
 type cartProductState = {
     items:cartItem[],

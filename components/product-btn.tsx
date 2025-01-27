@@ -10,7 +10,7 @@ export default function BookBtn({myProduct,rounded}:{myProduct:products, rounded
     image: myProduct.image,
     title: myProduct.title,
     SalePrice : myProduct.SalePrice,
-    RegularPrice:myProduct.RegularPrice
+    RegularPrice:myProduct.RegularPrice,
 }
   return (
     <div>
