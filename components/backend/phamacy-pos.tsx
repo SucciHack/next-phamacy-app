@@ -9,6 +9,7 @@ import Image from "next/image"
 import { useCategories } from "@/hooks/useCategory"
 import { Medication } from "@prisma/client"
 import { newCategory } from "@/types/types"
+import Loader from "../loader"
 
 
 type OrderItem = {
@@ -26,7 +27,7 @@ export default function PharmacyPOS() {
   console.log(activeCategory)
 
   if(isLoading){
-    return <div>loading...</div>
+    return <div><Loader/></div>
   }
 
 
