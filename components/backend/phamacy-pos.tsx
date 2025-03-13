@@ -21,9 +21,13 @@ export default function PharmacyPOS() {
   const [searchQuery, setSearchQuery] = useState("")
   const [orderItems, setOrderItems] = useState<OrderItem[]>([])
   const [discount, setDiscount] = useState("0")
-  const {categories} = useCategories()
+  const {categories, isLoading} = useCategories()
   const [activeCategory, setActiveCategory] = useState<newCategory | null>(categories[0])
   console.log(activeCategory)
+
+  if(isLoading){
+    return <div>loading...</div>
+  }
 
 
   // const addToOrder = (filteredMedications:newCategory) => {
