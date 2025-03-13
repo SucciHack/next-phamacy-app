@@ -9,6 +9,13 @@ export type cartItem = {
     SalePrice:number,
     RegularPrice:number,
 }
+
+export type orderItem = {
+    id:number
+    name:string
+    price:string
+    Quantity:string
+}
 type cartProductState = {
     items:cartItem[],
     handleAddToCart: (product:cartItem) => void,
@@ -19,7 +26,7 @@ export const useCartStore = create<cartProductState>()(
         (set,get) => ({
             items:[],
             handleAddToCart: (newProduct:cartItem)=> {
-                const productExist = get().items.find((product)=> product.id === newProduct.id)
+                const productExist = get().items.find((product)=> product.id === newProduct. id)
                 if(productExist){
                     toast({
                         variant: "destructive",
@@ -48,3 +55,35 @@ export const useCartStore = create<cartProductState>()(
     )
 );
 
+type OrderState = {
+    orders:orderItem[],
+    handleAddToCart: (order:orderItem) => void,
+    removeCartItem?: (id:number) => void
+}
+
+export const useOrderStore = create<OrderState>((set,get)=>({
+    orders:[],
+    handleAddToCart: (newOrder:orderItem)=> {
+        const productExist = get().orders.find((product)=> product.id === newOrder.id)
+        if(productExist){
+            toast({
+                variant: "destructive",
+                title: "❌❌ item already exists in cart.",
+                description: "There was a problem with your request.",
+              })
+        }else{
+            const products = get().orders;
+            set({orders: [...products, newOrder]})
+            toast({
+                description: "👌👌Product added to store",
+            })
+        }
+    },
+    removeCartItem: (id:number)=> {
+        const filteredProducts = get().orders.filter((product)=> product.id !== id)
+        set({orders: filteredProducts})
+        toast({
+            description: "✅✅Product removed from order",
+          })
+    }
+}))

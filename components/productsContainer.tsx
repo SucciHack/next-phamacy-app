@@ -74,8 +74,8 @@ export default function ProductsContainer() {
     </div>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-8 md:w-[90%] mx-auto p-2 md:p-0'>
             {
-                products.map((product,)=>{
-                    return <ProductCard key={product.id} product = {product}/>
+                products.map((product)=>{
+                    return <ProductCard key={product.id} rounded='2px' product = {product}/>
                 })
             }
         </div>   

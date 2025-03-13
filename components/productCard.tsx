@@ -1,8 +1,16 @@
 import Image from "next/image"
 import { Star } from "lucide-react"
-import { products } from "@/types/types"
 import BookBtn from "./product-btn"
-export default function ProductCard({product,rounded,}:{product:products,rounded?:string}) {
+
+export type productProps ={
+  id:number,
+  image:string,
+  title:string,
+  SalePrice:number,
+  RegularPrice:number
+}
+
+export default function ProductCard({product,rounded}:{product:productProps,rounded?:string}) {
   return (
     <div className="relative bg-gray-200 shadow-lg rounded-md overflow-hidden w-[100%] mx-auto mb-6">
       <div>
@@ -22,8 +30,8 @@ export default function ProductCard({product,rounded,}:{product:products,rounded
         <div className="space-y-2 p-2 px-8 pb-6">
           <h3 className="text-lg font-medium">{product.title}</h3>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-medium">${product.SalePrice.toFixed(2)}</span>
-            <span className="text-sm text-muted-foreground line-through">${product.RegularPrice.toFixed(2)}</span>
+            <span className="text-lg font-medium">${product.RegularPrice.toFixed(2)}</span>
+            <span className="text-sm text-muted-foreground line-through">${product.SalePrice.toFixed(2)}</span>
           </div>
           <div className="flex items-center gap-1">
             {[...Array(4)].map((_, i) => (

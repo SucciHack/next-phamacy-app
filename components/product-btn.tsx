@@ -1,9 +1,9 @@
 'use client'
 import { useCartStore } from '@/store/store'
-import { products } from '@/types/types'
 import React from 'react'
+import { productProps } from './productCard'
 
-export default function BookBtn({myProduct,rounded}:{myProduct:products, rounded?:string,}) {
+export default function BookBtn({myProduct,rounded}:{myProduct:productProps, rounded?:string,}) {
   const handleAddToCart = useCartStore((state)=>state.handleAddToCart)
   const cartItem = {
     id: myProduct.id,

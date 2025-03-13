@@ -32,7 +32,7 @@ export default function NavigationBar() {
           </Link>
           <div className='bg-black text-white w-[20px] h-[20px] absolute top-0 right-0 text-sm flex justify-center items-center rounded-full translate-x-2 translate-y-[-5px] font-bold'>{items.length}</div>
         </div>
-        <Link href='/register'>
+        <Link href='/login'>
           <CircleUser className='text-sm md:text-2xl'/>
         </Link>
       </div>
