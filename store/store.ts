@@ -1,4 +1,5 @@
 import { toast } from '@/hooks/use-toast';
+import { Medication } from '@prisma/client';
 import { create } from 'zustand';
 import { persist} from 'zustand/middleware'
 
@@ -14,7 +15,8 @@ export type orderItem = {
     id:number
     name:string
     price:string
-    Quantity:string
+    medication: Medication
+    quantity: number
 }
 type cartProductState = {
     items:cartItem[],
@@ -55,15 +57,15 @@ export const useCartStore = create<cartProductState>()(
     )
 );
 
-type OrderState = {
+export type OrderState = {
     orders:orderItem[],
-    handleAddToCart: (order:orderItem) => void,
-    removeCartItem?: (id:number) => void
+    handleAddToOrder: (order:orderItem) => void,
+    removeOrderItem: (id:number) => void
 }
 
 export const useOrderStore = create<OrderState>((set,get)=>({
     orders:[],
-    handleAddToCart: (newOrder:orderItem)=> {
+    handleAddToOrder: (newOrder:orderItem)=> {
         const productExist = get().orders.find((product)=> product.id === newOrder.id)
         if(productExist){
             toast({
@@ -79,7 +81,7 @@ export const useOrderStore = create<OrderState>((set,get)=>({
             })
         }
     },
-    removeCartItem: (id:number)=> {
+    removeOrderItem: (id:number)=> {
         const filteredProducts = get().orders.filter((product)=> product.id !== id)
         set({orders: filteredProducts})
         toast({

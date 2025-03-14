@@ -7,20 +7,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { useCategories } from "@/hooks/useCategory"
-import { Medication } from "@prisma/client"
 import { newCategory } from "@/types/types"
 import Loader from "../loader"
+import { orderItem} from "@/store/store"
 
-
-type OrderItem = {
-  id: number
-  medication: Medication
-  quantity: number
-}
 
 export default function PharmacyPOS() {
   const [searchQuery, setSearchQuery] = useState("")
-  const [orderItems, setOrderItems] = useState<OrderItem[]>([])
+  const [orderItems, setOrderItems] = useState<orderItem[]>([])
   const [discount, setDiscount] = useState("0")
   const {categories, isLoading} = useCategories()
   const [activeCategory, setActiveCategory] = useState<newCategory | null>(categories[0])
@@ -31,17 +25,17 @@ export default function PharmacyPOS() {
   }
 
 
-  // const addToOrder = (filteredMedications:newCategory) => {
-  //   const existingItem = orderItems.find((item) => item.medication.id === filteredMedications.id)
+  // const addToOrder = (filteredMedications:orderItem) => {
+  //   const existingItem = orderItems.find((item) => item.id === filteredMedications.id)
 
   //   if (existingItem) {
   //     setOrderItems(
   //       orderItems.map((item) =>
-  //         item.medication.id === filteredMedications.id ? { ...item, quantity: item.quantity + 1 } : item,
+  //         item.id === filteredMedications.id ? { ...item, quantity: item.quantity + 1 } : item,
   //       ),
   //     )
   //   } else {
-  //     // setOrderItems([...orderItems, { id: Date.now(), medication, quantity: 1 }])
+  //     setOrderItems([...orderItems, { id: Date.now(), medication, quantity: 1 }])
   //   }
   // }
 
@@ -78,7 +72,7 @@ export default function PharmacyPOS() {
             />
           </div>
         </div>
-        {/* <Button variant={activeCategory?.id === category.id ? "default" : "ghost"}>All</Button> */}
+        
           { categories.map((category)=> {
             return <Button variant={activeCategory?.id === category.id ? "default" : "ghost"}  className="ml-2 mb-2" onClick={()=> setActiveCategory(category)} key={category.id} value={category.name}>
               {category.name}
@@ -86,12 +80,15 @@ export default function PharmacyPOS() {
           })
         }
         {
-          activeCategory && activeCategory.medications && <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          activeCategory && activeCategory.medications &&
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {activeCategory.medications.map((medication) => (
             <Card
               key={medication.id}
               className="overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
-              // onClick={() => addToOrder(medication)}
+              // onClick={() =>
+              //   handleAddToOrder(orderItems)
+              // }
             >
               <div className="aspect-square relative">
                 <Image
@@ -104,12 +101,13 @@ export default function PharmacyPOS() {
               <CardContent className="p-3">
                 <h3 className="font-medium text-sm">{medication.name}</h3>
                 <p className="text-sm text-gray-500 mt-1">${medication.price}</p>
+                <p>{medication.stock}</p>
               </CardContent>
             </Card>
           ))}
     </div>
         }
-      </div>
+        </div>
 
       {/* Right side - Order panel */}
       <div className="w-full md:w-1/3 bg-white border-l border-gray-200 flex flex-col h-full">

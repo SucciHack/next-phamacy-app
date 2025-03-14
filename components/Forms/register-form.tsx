@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { Loader } from "lucide-react"
+import toast from "react-hot-toast"
 
 export type registerInputs = {
   fullname: string
@@ -37,12 +38,15 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
         },
         body: JSON.stringify(data),
       })
+      console.log(res)
       if (res.ok) {
         setLoading(false)
+        toast.success("account created successfully")
       }
       console.log(res)
     } catch (error) {
       console.log(error)
+      toast.error("failed to create account")
     } finally {
       setLoading(false)
       reset()

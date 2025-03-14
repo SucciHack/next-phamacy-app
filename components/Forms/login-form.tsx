@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import toast from "react-hot-toast"
 import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 
 export type inputs = {
@@ -28,7 +29,7 @@ export default function LoginForm() {
     reset,
     formState: { errors },
   } = useForm<inputs>()
-
+const router = useRouter()
   async function onSubmit(data:inputs){
     try {
       setLoading(true)
@@ -42,9 +43,11 @@ export default function LoginForm() {
       }
       if(loginData?.ok){
         toast.success("LoggedIn successfully")
+        router.push("/dashboard")
       }
     } catch (error) {
         console.log(error)
+        toast.error("failed to login")
       }finally{
         setLoading(false)
       }
