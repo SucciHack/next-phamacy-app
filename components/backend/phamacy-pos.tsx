@@ -101,7 +101,7 @@ export default function PharmacyPOS() {
               <CardContent className="p-3">
                 <h3 className="font-medium text-sm">{medication.name}</h3>
                 <p className="text-sm text-gray-500 mt-1">${medication.price}</p>
-                <p>{medication.stock}</p>
+                <p>stock:{medication.stock}</p>
               </CardContent>
             </Card>
           ))}
