@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { Loader } from "lucide-react"
 import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 export type registerInputs = {
   fullname: string
@@ -27,7 +28,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
     formState: { errors },
   } = useForm<registerInputs>()
   const [loading, setLoading] = useState(false)
-
+const router = useRouter()
   async function onSubmit(data: registerInputs) {
     try {
       setLoading(true)
@@ -40,8 +41,8 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
       })
       console.log(res)
       if (res.ok) {
-        setLoading(false)
         toast.success("account created successfully")
+        router.push("/login")
       }
       console.log(res)
     } catch (error) {

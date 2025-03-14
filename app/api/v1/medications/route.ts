@@ -2,6 +2,7 @@ import { db } from "@/prisma/db";
 import { MedicationResponse } from "@/types/types";
 import { NextRequest, NextResponse } from "next/server";
 
+//create a medication
 export async function POST(request:NextRequest){
     try {
     const data = await request.json()
@@ -36,6 +37,7 @@ categoryId,} = data
     }
 }
 
+//get all the medications
 export async function GET(): Promise <NextResponse<MedicationResponse>> {
     try {
         const data = await db.medication.findMany();

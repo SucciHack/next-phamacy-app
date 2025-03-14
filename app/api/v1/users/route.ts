@@ -3,7 +3,7 @@ import { db } from "@/prisma/db";
 import { hash } from "bcrypt-ts"
 import { NextRequest, NextResponse } from "next/server";
 
-//GET
+//creating the user 
 export async function POST(request:NextRequest) {
     try {
         const data:registerInputs = await request.json()
